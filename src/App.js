@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MemeInput from './MemeInput';
 
 export default function App() {
   return (
@@ -6,10 +7,7 @@ export default function App() {
       <div>Hello Darkness my old friend</div>
       <br />
       <div>
-        <img
-          src="https://api.memegen.link/images/doge/much_meme/high_quality.png"
-          alt="Meme test"
-        />
+        <MemeInput />
       </div>
     </>
   );
