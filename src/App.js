@@ -1,13 +1,10 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import MemeInput from './MemeInput';
 
 export default function App() {
   return (
-    <>
-      <h2>Hello Darkness my old fwiend</h2>
-      <div>
-        <MemeInput />
-      </div>
-    </>
+    <div>
+      <MemeInput />
+    </div>
   );
 }
