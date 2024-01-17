@@ -3,8 +3,11 @@ import { useState } from 'react';
 // declaration of variables
 export default function MemeInput() {
   const [memeName, setMemeName] = useState('doge');
-  const [upperText, setUpperText] = useState('many_thought');
-  const [lowerText, setLowerText] = useState('such_philosophy');
+  const [upperText, setUpperText] = useState('');
+  const [lowerText, setLowerText] = useState('');
+  //  const [imgAdress, setImgAdress] = useState(
+  //     `https://api.memegen.link/images/doge/_/_.png`,
+  //   );
 
   return (
     <>
@@ -45,11 +48,20 @@ export default function MemeInput() {
       </form>
       <br />
       <div>
-        <img
-          src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
-          alt="Meme test"
-        />
+        {upperText === '' ? (
+          <img
+            src={`https://api.memegen.link/images/${memeName}/_/_.png`}
+            alt="Meme test"
+          />
+        ) : (
+          <img
+            src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
+            alt="Meme test"
+          />
+        )}
       </div>
     </>
   );
 }
+//   src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
+//   <div>{isLoggedIn ? <p>Welcome</p> : <p>Please log in</p>}</div>

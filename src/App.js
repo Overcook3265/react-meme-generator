@@ -4,7 +4,7 @@ import MemeInput from './MemeInput';
 export default function App() {
   return (
     <>
-      <h2>Hello Darkness my old friend</h2>
+      <h2>Hello Darkness my old fwiend</h2>
       <div>
         <MemeInput />
       </div>
