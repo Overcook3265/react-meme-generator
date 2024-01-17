@@ -7,12 +7,49 @@ export default function MemeInput() {
   const [lowerText, setLowerText] = useState('such_philosophy');
 
   return (
-    <div>
-      <img
-        src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
-        alt="Meme test"
-      />
-      ;
-    </div>
+    <>
+      <form>
+        <label>
+          Meme Template <br />
+          <input
+            id="memeName"
+            value={memeName}
+            onChange={(event) => {
+              setMemeName(event.currentTarget.value);
+            }}
+          />
+        </label>
+
+        <br />
+        <label>
+          Top Text <br />
+          <input
+            id="upperText"
+            value={upperText}
+            onChange={(event) => {
+              setUpperText(event.currentTarget.value);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Bottom Text <br />
+          <input
+            id="lowerText"
+            value={lowerText}
+            onChange={(event) => {
+              setLowerText(event.currentTarget.value);
+            }}
+          />
+        </label>
+      </form>
+      <br />
+      <div>
+        <img
+          src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
+          alt="Meme test"
+        />
+      </div>
+    </>
   );
 }
