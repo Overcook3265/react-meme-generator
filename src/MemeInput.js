@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import DownloadButton from './DownloadButton';
+import styles from './MemeInputStyles.module.scss';
 
 // Declaration of variables. Every input field gets one, plus 2 const placeholders for the different image states.
 // The different image states are required to avoid breaking the link (memeName and upperText are required).
@@ -14,7 +15,7 @@ export default function MemeInput() {
   return (
     <>
       {/* 3 input fields to change the state of the states of the first 3 variables */}
-      <form>
+      <form className={styles.form}>
         <label>
           Meme template <br />
           <input
