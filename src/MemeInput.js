@@ -51,11 +51,11 @@ export default function MemeInput() {
 
         <br />
         <label>
-          Top Text <br />
+          Top text <br />
           <input
             // id="upperText"
             // value={upperText}
-            placeholder="Top Text"
+            placeholder="Top text"
             onChange={(event) => {
               setUpperText(event.currentTarget.value);
             }}
@@ -63,11 +63,11 @@ export default function MemeInput() {
         </label>
         <br />
         <label>
-          Bottom Text <br />
+          Bottom text <br />
           <input
             // id="lowerText"
             // value={lowerText}
-            placeholder="Bottom Text"
+            placeholder="Bottom text"
             onChange={(event) => {
               setLowerText(event.currentTarget.value);
             }}
@@ -92,9 +92,9 @@ export default function MemeInput() {
 
       <div id="meme">
         {upperText === '' || memeName === '' ? (
-          <img src={defaultPic} alt="Meme test" />
+          <img src={defaultPic} alt="Meme test" data-test-id="meme-image" />
         ) : (
-          <img src={memePic} alt="Generated Meme" />
+          <img src={memePic} alt="Generated Meme" data-test-id="meme-image" />
         )}
       </div>
     </>
