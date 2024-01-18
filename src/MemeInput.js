@@ -5,10 +5,10 @@ import { useState } from 'react';
 
 // declaration of variables
 export default function MemeInput() {
-  const [memeName, setMemeName] = useState('');
+  const [memeName, setMemeName] = useState('doge');
   const [upperText, setUpperText] = useState('_');
   const [lowerText, setLowerText] = useState('_');
-  const defaultPic = `https://api.memegen.link/images/doge/_/_.png`;
+  const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
   const memePic = `https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`;
 
   //  const [imgAddress, setImgAddress] = useState(
