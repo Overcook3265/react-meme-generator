@@ -1,5 +1,5 @@
-import { saveAs } from 'file-saver';
 import { useState } from 'react';
+import DownloadButton from './DownloadButton';
 
 // Declaration of variables. Every input field gets one, plus 2 const placeholders for the different image states.
 // The different image states are required to avoid breaking the link (memeName and upperText are required).
@@ -47,14 +47,17 @@ export default function MemeInput() {
           />
         </label>
       </form>
-      {/* Button with a function pointing to the file-saver library */}
-      <button
-        onClick={function () {
-          saveAs(memePic, `${memeName}_${upperText}_${lowerText}.jpg`);
-        }}
-      >
-        Download
-      </button>
+      {/* Button with a function pointing to the file-saver library
+      Here we use a component download button. The variable that it needs to function are defined in
+      angular brackets in the name right below. It sends those variables-turned-into-props "down" to the
+      component. The component recieves the from above and then executes whatever function is defined with it.
+      */}
+      <DownloadButton
+        memePic={memePic}
+        memeName={memeName}
+        upperText={upperText}
+        lowerText={lowerText}
+      />
       <br />
       {/* Div container with ternary operator determining which image link variable to show.
         If either upperText or memeName are empty, a default picture gets show. */}
