@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // declaration of variables
 export default function MemeInput() {
-  const [memeName, setMemeName] = useState('doge');
+  const [memeName, setMemeName] = useState('ll');
   const [upperText, setUpperText] = useState('_');
   const [lowerText, setLowerText] = useState('_');
   const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
