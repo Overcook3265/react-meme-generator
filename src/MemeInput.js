@@ -1,9 +1,9 @@
 import { saveAs } from 'file-saver';
-// import fs from 'node:fs';
-// import http from 'node:http';
 import { useState } from 'react';
 
-// declaration of variables
+// Declaration of variables. Every input field gets one, plus 2 const placeholders for the different image states.
+// The different image states are required to avoid breaking the link (memeName and upperText are required).
+// Use state of memeName is filled to show default picture on loading.
 export default function MemeInput() {
   const [memeName, setMemeName] = useState('ll');
   const [upperText, setUpperText] = useState('_');
@@ -11,36 +11,14 @@ export default function MemeInput() {
   const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
   const memePic = `https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`;
 
-  //  const [imgAddress, setImgAddress] = useState(
-  //     `https://api.memegen.link/images/doge/_/_.png`,
-  //   );
-
-  // function downloadFile(url, fileName) {
-  //   fetch(url, {
-  //     method: 'get',
-  //     mode: 'no-cors',
-  //     referrerPolicy: 'no-referrer',
-  //   })
-  //     .then((res) => res.blob())
-  //     .then((res) => {
-  //       const aElement = document.createElement('a');
-  //       aElement.setAttribute('download', fileName);
-  //       const href = URL.createObjectURL(res);
-  //       aElement.href = href;
-  //       aElement.setAttribute('target', '_blank');
-  //       aElement.click();
-  //       URL.revokeObjectURL(href);
-  //     })
-  //     .catch((err) => alert(err));
-  // }
-
   return (
     <>
+      {/* 3 input fields to change the state of the states of the first 3 variables */}
       <form>
         <label>
           Meme template <br />
           <input
-            // id="memeName"
+            // The "value" is not needed here because the input field should be empty (task requirement). Same for input below.
             // value={memeName}
             placeholder="Name the Meme"
             onChange={(event) => {
@@ -48,13 +26,10 @@ export default function MemeInput() {
             }}
           />
         </label>
-
         <br />
         <label>
           Top text <br />
           <input
-            // id="upperText"
-            // value={upperText}
             placeholder="Top text"
             onChange={(event) => {
               setUpperText(event.currentTarget.value);
@@ -65,8 +40,6 @@ export default function MemeInput() {
         <label>
           Bottom text <br />
           <input
-            // id="lowerText"
-            // value={lowerText}
             placeholder="Bottom text"
             onChange={(event) => {
               setLowerText(event.currentTarget.value);
@@ -74,7 +47,7 @@ export default function MemeInput() {
           />
         </label>
       </form>
-      {/* <button onClick={downloadMeme}>Download</button> */}
+      {/* Button with a function pointing to the file-saver library */}
       <button
         onClick={function () {
           saveAs(memePic, `${memeName}_${upperText}_${lowerText}.jpg`);
@@ -83,13 +56,8 @@ export default function MemeInput() {
         Download
       </button>
       <br />
-      {/* <div>
-        <img
-          src={`https://api.memegen.link/images/doge/${upperText}/${lowerText}.png`}
-          alt="Meme test"
-        />
-      </div> */}
-
+      {/* Div container with ternary operator determining which image link variable to show.
+        If either upperText or memeName are empty, a default picture gets show. */}
       <div id="meme">
         {upperText === '' || memeName === '' ? (
           <img src={defaultPic} alt="Meme test" data-test-id="meme-image" />
@@ -100,5 +68,3 @@ export default function MemeInput() {
     </>
   );
 }
-//   src={`https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`}
-//   <div>{isLoggedIn ? <p>Welcome</p> : <p>Please log in</p>}</div>
