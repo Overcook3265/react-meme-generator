@@ -38,7 +38,7 @@ export default function MemeInput() {
     <>
       <form>
         <label>
-          Meme Template <br />
+          Meme template <br />
           <input
             // id="memeName"
             // value={memeName}
