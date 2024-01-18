@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function MemeInput() {
   const [memeName, setMemeName] = useState('doge');
   const [upperText, setUpperText] = useState('_');
-  const [lowerText, setLowerText] = useState('');
+  const [lowerText, setLowerText] = useState('_');
   const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
   const memePic = `https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`;
 
