@@ -10,7 +10,7 @@ export default function MemeInput() {
   const [memeName, setMemeName] = useState('ll');
   const [upperText, setUpperText] = useState('_');
   const [lowerText, setLowerText] = useState('_');
-  const [inputField, setInputField] = useState();
+  // const [inputField, setInputField] = useState();
   const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
   const memePic = `https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`;
 
@@ -35,7 +35,7 @@ export default function MemeInput() {
           placeholder="Name your meme"
         />
         <br />
-        <label>
+        {/* <label>
           Top text <br />
           <input
             placeholder="Top text"
@@ -43,9 +43,14 @@ export default function MemeInput() {
               setUpperText(event.currentTarget.value);
             }}
           />
-        </label>
+        </label> */}
+        <InputField
+          setInputField={setUpperText}
+          label="Top text"
+          placeholder="Top text"
+        />
         <br />
-        <label>
+        {/* <label>
           Bottom text <br />
           <input
             placeholder="Bottom text"
@@ -53,12 +58,17 @@ export default function MemeInput() {
               setLowerText(event.currentTarget.value);
             }}
           />
-        </label>
+        </label> */}
+        <InputField
+          setInputField={setLowerText}
+          label="Bottom text"
+          placeholder="Bottom text"
+        />
       </form>
       {/* Button with a function pointing to the file-saver library
       Here we use a component download button. The variable that it needs to function are defined in
       angular brackets in the name right below. It sends those variables-turned-into-props "down" to the
-      component. The component recieves the from above and then executes whatever function is defined with it.
+      component. The component receives the from above and then executes whatever function is defined with it.
       */}
       <DownloadButton
         memePic={memePic}
