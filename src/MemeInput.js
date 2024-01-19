@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import DownloadButton from './DownloadButton';
+import InputField from './InputField';
 import styles from './MemeInputStyles.module.scss';
 
 // Declaration of variables. Every input field gets one, plus 2 const placeholders for the different image states.
@@ -9,6 +10,7 @@ export default function MemeInput() {
   const [memeName, setMemeName] = useState('ll');
   const [upperText, setUpperText] = useState('_');
   const [lowerText, setLowerText] = useState('_');
+  const [inputField, setInputField] = useState();
   const defaultPic = `https://api.memegen.link/images/${memeName}/_/_.png`;
   const memePic = `https://api.memegen.link/images/${memeName}/${upperText}/${lowerText}.png`;
 
@@ -16,7 +18,7 @@ export default function MemeInput() {
     <>
       {/* 3 input fields to change the state of the states of the first 3 variables */}
       <form className={styles.form}>
-        <label>
+        {/* <label>
           Meme template <br />
           <input
             // The "value" is not needed here because the input field should be empty (task requirement). Same for input below.
@@ -26,7 +28,12 @@ export default function MemeInput() {
               setMemeName(event.currentTarget.value);
             }}
           />
-        </label>
+        </label> */}
+        <InputField
+          setInputField={setMemeName}
+          label="Meme template"
+          placeholder="Name your meme"
+        />
         <br />
         <label>
           Top text <br />
