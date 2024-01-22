@@ -4,7 +4,6 @@
 
 .background {
   background-color: cadetblue;
-  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   justify-content: center;
@@ -15,27 +14,28 @@
 .main {
   background-color: darkslateblue;
   box-sizing: border-box;
-  height: 90%;
   width: 80%;
   justify-content: center;
+  margin: 1em;
   display: flex;
   align-items: center;
-}
-
-.main > * {
+  flex-wrap: wrap;
   padding: 1em;
 }
 
 .form {
   background-color: rebeccapurple;
+  margin: 1em;
 }
 
 .imgcontainer {
-  box-sizing: border-box;
+  max-height: max-content;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
 }
 
 .imgcontainer > * {
-  flex-shrink: 1;
   max-height: 80vh;
-  max-width: 90vh;
+  max-width: 90%;
 }
