@@ -12,10 +12,16 @@
 }
 
 .main {
-  background-color: darkslateblue;
+  align-content: center;
+  background-color: rgb(99, 89, 166);
+  border-style: outset;
+  border-color: silver;
+  border-radius: 10px;
+  border-width: 2px;
   box-sizing: border-box;
-  width: 80%;
-  justify-content: center;
+  min-height: 50%;
+  min-width: 50%;
+  // justify-content: center;
   margin: 1em;
   display: flex;
   align-items: center;
@@ -23,8 +29,13 @@
 }
 
 .form {
-  background-color: rebeccapurple;
+  background-color: rgb(75, 36, 111);
+  border-width: 2px;
   margin: 1em;
+  color: azure;
+  border-style: outset;
+  border-color: silver;
+  padding: 0.5em;
 }
 
 .imgcontainer {
