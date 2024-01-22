@@ -20,11 +20,6 @@ export default function MemeInput() {
       <div className={styles.background}>
         <div className={styles.frame}>
           <form className={styles.form}>
-            <h4>
-              ! FRESH MEMES !
-              <br /> first come first serve
-              <br />( ͡° ͜ʖ ͡°)
-            </h4>
             {/* <label>
           Meme template <br />
           <input
@@ -90,7 +85,7 @@ export default function MemeInput() {
             {upperText === '' || memeName === '' ? (
               <img
                 src={defaultPic}
-                alt="Where's the meme? ಠ_ಠ"
+                alt="Meme test"
                 data-test-id="meme-image"
                 className={styles.picture}
               />
