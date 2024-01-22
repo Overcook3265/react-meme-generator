@@ -1,3 +1,4 @@
+import '@fontsource/ibm-plex-mono';
 import { useState } from 'react';
 import DownloadButton from './DownloadButton';
 import InputField from './InputField';
@@ -17,8 +18,10 @@ export default function MemeInput() {
   return (
     <>
       {/* 3 input fields to change the state of the states of the first 3 variables */}
-      <form className={styles.form}>
-        {/* <label>
+      <div className={styles.background}>
+        <div className={styles.main}>
+          <form className={styles.form}>
+            {/* <label>
           Meme template <br />
           <input
             // The "value" is not needed here because the input field should be empty (task requirement). Same for input below.
@@ -29,13 +32,13 @@ export default function MemeInput() {
             }}
           />
         </label> */}
-        <InputField
-          setInputField={setMemeName}
-          label="Meme template"
-          placeholder="Name your meme"
-        />
-        <br />
-        {/* <label>
+            <InputField
+              setInputField={setMemeName}
+              label="Meme template"
+              placeholder="Name your meme"
+            />
+            <br />
+            {/* <label>
           Top text <br />
           <input
             placeholder="Top text"
@@ -44,13 +47,13 @@ export default function MemeInput() {
             }}
           />
         </label> */}
-        <InputField
-          setInputField={setUpperText}
-          label="Top text"
-          placeholder="Top text"
-        />
-        <br />
-        {/* <label>
+            <InputField
+              setInputField={setUpperText}
+              label="Top text"
+              placeholder="Top text"
+            />
+            <br />
+            {/* <label>
           Bottom text <br />
           <input
             placeholder="Bottom text"
@@ -59,32 +62,38 @@ export default function MemeInput() {
             }}
           />
         </label> */}
-        <InputField
-          setInputField={setLowerText}
-          label="Bottom text"
-          placeholder="Bottom text"
-        />
-      </form>
-      {/* Button with a function pointing to the file-saver library
+            <InputField
+              setInputField={setLowerText}
+              label="Bottom text"
+              placeholder="Bottom text"
+            />
+          </form>
+          {/* Button with a function pointing to the file-saver library
       Here we use a component download button. The variable that it needs to function are defined in
       angular brackets in the name right below. It sends those variables-turned-into-props "down" to the
       component. The component receives the from above and then executes whatever function is defined with it.
       */}
-      <DownloadButton
-        memePic={memePic}
-        memeName={memeName}
-        upperText={upperText}
-        lowerText={lowerText}
-      />
-      <br />
-      {/* Div container with ternary operator determining which image link variable to show.
+          <DownloadButton
+            memePic={memePic}
+            memeName={memeName}
+            upperText={upperText}
+            lowerText={lowerText}
+          />
+          <br />
+          {/* Div container with ternary operator determining which image link variable to show.
         If either upperText or memeName are empty, a default picture gets show. */}
-      <div id="meme">
-        {upperText === '' || memeName === '' ? (
-          <img src={defaultPic} alt="Meme test" data-test-id="meme-image" />
-        ) : (
-          <img src={memePic} alt="Generated Meme" data-test-id="meme-image" />
-        )}
+          <div className={styles.imgcontainer}>
+            {upperText === '' || memeName === '' ? (
+              <img src={defaultPic} alt="Meme test" data-test-id="meme-image" />
+            ) : (
+              <img
+                src={memePic}
+                alt="Generated Meme"
+                data-test-id="meme-image"
+              />
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
